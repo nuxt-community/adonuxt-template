@@ -34,7 +34,7 @@ See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js feat
 
 | Command | Description |
 |---------|-------------|
-| npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3333](http://localhost:3333). |
+| npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3000](http://localhost:3000). |
 | npm run build | Build the nuxt.js web application for production. |
 | npm start | Start AdonisJS server in production. |
 
