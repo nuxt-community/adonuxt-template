@@ -12,18 +12,27 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 vue init nuxt/adonuxt <project-name>
 cd <project-name> # move to your project
 mv .env.example .env # Add environment variables for Adonis
+chmod +x ./ace # Set ace as executable
 npm install # or yarn install
 ```
 
-## AdonisJS breaking changes
+## AdonisJS Changes
 
 - No more `public` directory, use `resources/static/` instead.
 - No more `resources/views` directory.
 
-## Nuxt.js breaking changes
+## Nuxt.js Changes
 
 - The `nuxt.config.js` file is now in `config/nuxt.js`.
 - The Nuxt project directory is `resources`.
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3333](http://localhost:3333). |
+| npm run build | Build the nuxt.js web application for production. |
+| npm start | Start AdonisJS server in production. |
 
 ## Documentation
 
