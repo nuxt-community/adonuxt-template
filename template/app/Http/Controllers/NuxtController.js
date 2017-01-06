@@ -7,7 +7,9 @@ const Nuxt = require('nuxt')
 class NuxtController {
 
   constructor () {
-    this.nuxt = new Nuxt(Config.get('nuxt'))
+    let config = Config.get('nuxt')
+    config.dev = Env.get('NODE_ENV') === 'development'
+    this.nuxt = new Nuxt(config)
     if (Env.get('NODE_ENV') === 'development') {
       this.nuxt.build()
     }
