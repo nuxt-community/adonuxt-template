@@ -2,7 +2,7 @@
 
 # AdoNuxt
 
-> AdonisJS + Nuxt.js = :fire:
+> [AdonisJS](http://adonisjs.com/) + [Nuxt.js](https://nuxtjs.org) = :fire:
 
 ## Installation
 
