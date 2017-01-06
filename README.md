@@ -17,7 +17,7 @@ npm install # or yarn install
 
 ## AdonisJS breaking changes
 
-- No more `public` directory.
+- No more `public` directory, use `resources/static/` instead.
 - No more `resources/views` directory.
 
 ## Nuxt.js breaking changes
