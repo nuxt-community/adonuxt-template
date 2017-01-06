@@ -23,7 +23,7 @@ npm install # or yarn install
 ## Nuxt.js breaking changes
 
 - The `nuxt.config.js` file is now in `config/nuxt.js`.
-- The nuxt project root directory is `resources`.
+- The Nuxt project directory is `resources`.
 
 ## Documentation
 
