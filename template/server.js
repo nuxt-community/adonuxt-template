@@ -14,5 +14,7 @@
 const http = require('./bootstrap/http')
 http(function () {
   use('Event').fire('Http.start')
+
+  // Start nuxt.js build as soon as possible
   use('App/Http/Controllers/NuxtController')
 })
