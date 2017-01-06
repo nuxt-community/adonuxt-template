@@ -16,6 +16,12 @@ chmod +x ./ace # Set ace as executable
 npm install # or yarn install
 ```
 
+## Features
+
+See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js features](https://nuxtjs.org/guide/#features).
+
+Live demo: [https://ado.nuxtjs.org](https://ado.nuxtjs.org)
+
 ## AdonisJS Changes
 
 - No more `public` directory, use `resources/static/` instead.
