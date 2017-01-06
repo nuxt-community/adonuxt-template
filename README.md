@@ -15,6 +15,16 @@ mv .env.example .env # Add environment variables for Adonis
 npm install # or yarn install
 ```
 
+## AdonisJS breaking changes
+
+- No more `public` directory.
+- No more `resources/views` directory.
+
+## Nuxt.js breaking changes
+
+- The `nuxt.config.js` file is now in `config/nuxt.js`.
+- The nuxt project root directory is `resources`.
+
 ## Documentation
 
 - [AdonisJS](http://adonisjs.com/docs/)
