@@ -21,5 +21,5 @@ module.exports = {
       'message': 'Author'
     },
   },
-  completeMessage: '{{#inPlace}}To get started:\n\n  mv .env.example .env\n  npm install # Or yarn install\n  npm run dev{{else}}To get started:\n\n  cd {{destDirName}}\n  mv .env.example .env\n  npm install # Or yarn install\n  npm run dev{{/inPlace}}'
+  completeMessage: '{{#inPlace}}To get started:\n\n  mv .env.example .env\n  chmod +x ./ace # Set ace as executable\n  npm install # Or yarn install\n  npm run dev{{else}}To get started:\n\n  cd {{destDirName}}\n  mv .env.example .env\n  chmod +x ./ace # Set ace as executable\n  npm install # Or yarn install\n  npm run dev{{/inPlace}}'
 };
