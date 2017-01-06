@@ -20,8 +20,6 @@ npm install # or yarn install
 
 See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js features](https://nuxtjs.org/guide/#features).
 
-Live demo: [https://ado.nuxtjs.org](https://ado.nuxtjs.org)
-
 ## AdonisJS Changes
 
 - No more `public` directory, use `resources/static/` instead.
@@ -39,6 +37,10 @@ Live demo: [https://ado.nuxtjs.org](https://ado.nuxtjs.org)
 | npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3333](http://localhost:3333). |
 | npm run build | Build the nuxt.js web application for production. |
 | npm start | Start AdonisJS server in production. |
+
+## Live Demo
+
+[https://ado.nuxtjs.org](https://ado.nuxtjs.org)
 
 ## Documentation
 
