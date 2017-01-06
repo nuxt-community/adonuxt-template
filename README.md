@@ -12,7 +12,6 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 vue init nuxt/adonuxt <project-name>
 cd <project-name> # move to your project
 mv .env.example .env # Add environment variables for Adonis
-chmod +x ./ace # Set ace as executable
 npm install # or yarn install
 ```
 
