@@ -42,6 +42,8 @@ See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js feat
 
 [https://ado.nuxtjs.org](https://ado.nuxtjs.org)
 
+This demo has been deployed to [now.sh](https://zeit.co/now/) with the single command: `now`
+
 ## Documentation
 
 - [AdonisJS](http://adonisjs.com/docs/)
