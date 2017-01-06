@@ -7,7 +7,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
-    "start": "node server.js",
+    "build": "./ace nuxtbuild",
+    "start": "NODE_ENV=production node server.js",
     "lint": "standard"
   },
   "dependencies": {
