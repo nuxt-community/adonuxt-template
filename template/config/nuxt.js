@@ -18,6 +18,7 @@ module.exports = {
       },
       {
         hid: 'description',
+        name: 'description',
         content: "Adonuxt project"
       }
     ],
