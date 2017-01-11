@@ -15,6 +15,8 @@ mv .env.example .env # Add environment variables for Adonis
 npm install # or yarn install
 ```
 
+> Make sure to use a version of vue-cli >= 2.1 (vue -V).
+
 ## Features
 
 See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js features](https://nuxtjs.org/guide/#features).
