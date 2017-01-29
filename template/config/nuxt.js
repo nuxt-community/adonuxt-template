@@ -19,7 +19,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: "Adonuxt project"
+        content: 'Adonuxt project'
       }
     ],
     link: [
