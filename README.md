@@ -9,8 +9,7 @@
 This is a project template for [adonis-cli](https://github.com/adonisjs/adonis-cli).
 
 ```bash
-adonis new <project-name> --blueprint nuxt/adonuxt
-cd <project-name> # move to your project
+adonis new --blueprint nuxt/adonuxt <project-name>
 ```
 
 > Make sure to use a version of adonis-cli >= 2.1.8 (`adonis --version`).
