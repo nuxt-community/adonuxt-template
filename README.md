@@ -1,4 +1,4 @@
-<p align="center"><img width="400" src="https://raw.githubusercontent.com/nuxt/adonuxt/master/template/resources/assets/img/logo.png"></p>
+<p align="center"><img width="400" src="https://raw.githubusercontent.com/nuxt/adonuxt/master/resources/assets/img/logo.png"></p>
 
 # AdoNuxt
 
