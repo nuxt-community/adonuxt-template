@@ -7,6 +7,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
+    "serve:dev": "npm run dev",
     "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
     "build": "node ./ace nuxtbuild",
     "start": "NODE_ENV=production node server.js",
