@@ -6,16 +6,23 @@
 
 ## Installation
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+This is a project template for [adonis-cli](https://github.com/adonisjs/adonis-cli).
 
 ```bash
-vue init nuxt/adonuxt <project-name>
+adonis new <project-name> --blueprint nuxt/adonuxt
 cd <project-name> # move to your project
-mv .env.example .env # Add environment variables for Adonis
-npm install # or yarn install
 ```
 
-> Make sure to use a version of vue-cli >= 2.1 (vue -V).
+> Make sure to use a version of adonis-cli >= 2.1.8 (`adonis --version`).
+
+## Usage
+
+| Command | Description |
+|---------|-------------|
+| npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3000](http://localhost:3000). |
+| npm run build | Build your nuxt.js web application for production. |
+| npm start | Start AdonisJS server in production. |
+| npm lint | Lint your code with [ESLint](http://eslint.org) and [Standard](http://standardjs.com). |
 
 ## Features
 
@@ -31,19 +38,11 @@ See [AdonisJS features](http://adonisjs.com/docs/3.2/overview) and [Nuxt.js feat
 - The `nuxt.config.js` file is now in `config/nuxt.js`.
 - The Nuxt project directory is `resources`.
 
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| npm run dev | Start AdonisJS server in development with Nuxt.js in dev mode (hot reloading). Listen on [http://localhost:3000](http://localhost:3000). |
-| npm run build | Build the nuxt.js web application for production. |
-| npm start | Start AdonisJS server in production. |
-
 ## Live Demo
 
 [https://ado.nuxtjs.org](https://ado.nuxtjs.org)
 
-This demo has been deployed to [now.sh](https://zeit.co/now/) with the single command: `now`
+*This demo has been deployed to [now.sh](https://zeit.co/now/) with the single command: `now`*
 
 ## Documentation
 
