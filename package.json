@@ -15,12 +15,12 @@
     "lint": "standard && eslint --ext .js,.vue resources/"
   },
   "dependencies": {
-    "adonis-ace": "^3.0.5",
+    "adonis-ace": "^3.0.6",
     "adonis-auth": "^1.0.5",
-    "adonis-commands": "^2.1.3",
+    "adonis-commands": "^2.1.5",
     "adonis-fold": "^3.0.3",
     "adonis-framework": "^3.0.9",
-    "adonis-lucid": "^3.0.12",
+    "adonis-lucid": "^3.0.13",
     "adonis-middleware": "^1.0.10",
     "adonis-websocket": "^1.0.2",
     "nuxt": "latest",

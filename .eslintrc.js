@@ -21,5 +21,7 @@ module.exports = {
     // do not allow console.logs etc...
     'no-console': 2
   },
-  globals: {}
+  globals: {
+    'use': true
+  }
 }
