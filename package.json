@@ -10,7 +10,7 @@
     "serve:dev": "npm run dev",
     "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
     "build": "node ./ace nuxtbuild",
-    "start": "NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "precommit": "npm run lint",
     "lint": "standard && eslint --ext .js,.vue resources/"
   },
@@ -23,6 +23,7 @@
     "adonis-lucid": "^3.0.13",
     "adonis-middleware": "^1.0.10",
     "adonis-websocket": "^1.0.2",
+    "cross-env": "^3.1.4",
     "nuxt": "latest",
     "standard": "^8.6.0",
     "youch": "^2.0.4"
