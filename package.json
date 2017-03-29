@@ -22,7 +22,7 @@
     "adonis-framework": "^3.0.9",
     "adonis-lucid": "^3.0.13",
     "adonis-middleware": "^1.0.10",
-    "adonis-websocket": "^1.0.2",
+    "adonis-websocket": "^1.0.4",
     "cross-env": "^3.1.4",
     "nuxt": "latest",
     "standard": "^8.6.0",
