@@ -38,7 +38,9 @@ class NuxtBuild extends Command {
     config.dev = false
     this.nuxt = new Nuxt(config)
     this.info('Building nuxt.js application...')
-    yield this.nuxt.build()
+    this.nuxt.then((nuxt) => {
+      nuxt.build()
+    })
   }
 
 }
