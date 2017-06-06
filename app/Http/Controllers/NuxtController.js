@@ -10,12 +10,7 @@ class NuxtController {
     let config = Config.get('nuxt')
     config.dev = Env.get('NODE_ENV') === 'development'
     this.nuxt = new Nuxt(config)
-      .then((nuxt) => {
-        this.nuxt = nuxt
-        if (config.dev) {
-          this.nuxt.build()
-        }
-      })
+    this.nuxt.build()
   }
 
   * render (request, response) {
