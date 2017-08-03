@@ -2,7 +2,7 @@
 
 const Command = use('Command')
 const Config = use('Config')
-const Nuxt = require('nuxt')
+const { Nuxt } = require('nuxt')
 
 class NuxtBuild extends Command {
 

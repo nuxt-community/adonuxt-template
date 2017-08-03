@@ -2,7 +2,7 @@
 
 const Env = use('Env')
 const Config = use('Config')
-const Nuxt = require('nuxt')
+const { Nuxt, Builder } = require('nuxt')
 
 class NuxtController {
 
@@ -10,12 +10,10 @@ class NuxtController {
     let config = Config.get('nuxt')
     config.dev = Env.get('NODE_ENV') === 'development'
     this.nuxt = new Nuxt(config)
-      .then((nuxt) => {
-        this.nuxt = nuxt
-        if (config.dev) {
-          this.nuxt.build()
-        }
-      })
+    // Start build process (only in development)
+    if (config.dev) {
+      new Builder(this.nuxt).build()
+    }
   }
 
   * render (request, response) {
