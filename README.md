@@ -2,6 +2,8 @@
 
 # AdoNuxt
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nuxt-community/adonuxt-template.svg)](https://greenkeeper.io/)
+
 > [AdonisJS](http://adonisjs.com/) + [Nuxt.js](https://nuxtjs.org) = :fire:
 
 ## Installation
