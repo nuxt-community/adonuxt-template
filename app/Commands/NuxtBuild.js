@@ -2,7 +2,7 @@
 
 const Command = use('Command')
 const Config = use('Config')
-const { Nuxt } = require('nuxt')
+const { Nuxt, Builder } = require('nuxt')
 
 class NuxtBuild extends Command {
 
@@ -38,7 +38,7 @@ class NuxtBuild extends Command {
     config.dev = false
     this.nuxt = new Nuxt(config)
     this.info('Building nuxt.js application...')
-    yield this.nuxt.build()
+    yield new Builder(this.nuxt).build()
   }
 
 }
