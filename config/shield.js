@@ -9,16 +9,61 @@ module.exports = {
   | Content security policy filters out the origins not allowed to execute
   | and load resources like scripts, styles and fonts. There are wide
   | variety of options to choose from.
-  | @examples
-  | directives: {
-  |   defaultSrc: ['self', '@nonce', 'cdnjs.cloudflare.com']
-  | }
   */
   csp: {
+    /*
+    |--------------------------------------------------------------------------
+    | Directives
+    |--------------------------------------------------------------------------
+    |
+    | All directives are defined in camelCase and here is the list of
+    | available directives and their possible values.
+    |
+    | https://content-security-policy.com
+    |
+    | @example
+    | directives: {
+    |   defaultSrc: ['self', '@nonce', 'cdnjs.cloudflare.com']
+    | }
+    |
+    */
     directives: {
     },
+    /*
+    |--------------------------------------------------------------------------
+    | Report only
+    |--------------------------------------------------------------------------
+    |
+    | Setting `reportOnly=true` will not block the scripts from running and
+    | instead report them to a URL.
+    |
+    */
     reportOnly: false,
+    /*
+    |--------------------------------------------------------------------------
+    | Set all headers
+    |--------------------------------------------------------------------------
+    |
+    | Headers staring with `X` have been depreciated, since all major browsers
+    | supports the standard CSP header. So its better to disable deperciated
+    | headers, unless you want them to be set.
+    |
+    */
     setAllHeaders: false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Disable on android
+    |--------------------------------------------------------------------------
+    |
+    | Certain versions of android are buggy with CSP policy. So you can set
+    | this value to true, to disable it for Android versions with buggy
+    | behavior.
+    |
+    | Here is an issue reported on a different package, but helpful to read
+    | if you want to know the behavior. https://github.com/helmetjs/helmet/pull/82
+    |
+    */
     disableAndroid: true
   },
 
@@ -29,6 +74,8 @@ module.exports = {
   |
   | X-XSS Protection saves from applications from XSS attacks. It is adopted
   | by IE and later followed by some other browsers.
+  |
+  | Learn more at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
   |
   */
   xss: {
@@ -45,6 +92,8 @@ module.exports = {
   | iframe. Choose from one of the following options.
   | @available options
   | DENY, SAMEORIGIN, ALLOW-FROM http://example.com
+  |
+  | Learn more at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   */
   xframe: 'DENY',
 
@@ -57,6 +106,8 @@ module.exports = {
   | files with .txt extension containing Javascript code will be executed as
   | Javascript. You can disable this behavior by setting nosniff to false.
   |
+  | Learn more at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+  |
   */
   nosniff: true,
 
@@ -66,7 +117,7 @@ module.exports = {
   |--------------------------------------------------------------------------
   |
   | IE users can execute webpages in the context of your website, which is
-  | a serious security risk. Below options will manage this for you.
+  | a serious security risk. Below option will manage this for you.
   |
   */
   noopen: true,
@@ -84,7 +135,11 @@ module.exports = {
     enable: true,
     methods: ['POST', 'PUT', 'DELETE'],
     filterUris: [],
-    compareHostAndOrigin: true
+    cookieOptions: {
+      httpOnly: false,
+      sameSite: true,
+      path: '/',
+      maxAge: 7200
+    }
   }
-
 }

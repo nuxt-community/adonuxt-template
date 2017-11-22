@@ -3,7 +3,6 @@
 const Env = use('Env')
 
 module.exports = {
-
   /*
   |--------------------------------------------------------------------------
   | App Key
@@ -14,22 +13,6 @@ module.exports = {
   |
   */
   appKey: Env.get('APP_KEY'),
-
-  encryption: {
-    /*
-    |--------------------------------------------------------------------------
-    | Encryption algorithm
-    |--------------------------------------------------------------------------
-    |
-    | Encryption algorithm defines the algorithm to be used while encrypting
-    | values. Under the hood adonis makes of node-crypto.
-    |
-    | aes-256-cbc requires 32 characters long string
-    | aes-128-cbc requires 16 characters long string
-    |
-    */
-    algorithm: 'aes-256-cbc'
-  },
 
   http: {
     /*
@@ -75,17 +58,6 @@ module.exports = {
 
     /*
     |--------------------------------------------------------------------------
-    | Set Powered By
-    |--------------------------------------------------------------------------
-    |
-    | Adonis will set response header X-Powered-By if below value is set to
-    | true. Consider this as a way of saying thanks to us.
-    |
-    */
-    setPoweredBy: true,
-
-    /*
-    |--------------------------------------------------------------------------
     | JSONP Callback
     |--------------------------------------------------------------------------
     |
@@ -93,7 +65,20 @@ module.exports = {
     | in request url.
     |
     */
-    jsonpCallback: 'callback'
+    jsonpCallback: 'callback',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Etag
+    |--------------------------------------------------------------------------
+    |
+    | Set etag on all HTTP response. In order to disable for selected routes,
+    | you can call the `response.send` with an options object as follows.
+    |
+    | response.send('Hello', { ignoreEtag: true })
+    |
+    */
+    etag: true
   },
 
   views: {
@@ -106,18 +91,7 @@ module.exports = {
     | production to optimize view loading time.
     |
     */
-    cache: Env.get('CACHE_VIEWS', true),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Service Injection
-    |--------------------------------------------------------------------------
-    |
-    | Inside your nunjucks views, you can inject models, services etc using
-    | IoC container. Setting it to false will disable this feature.
-    |
-    */
-    injectServices: false
+    cache: Env.get('CACHE_VIEWS', true)
   },
 
   static: {
@@ -183,16 +157,54 @@ module.exports = {
     | based on HTTP headers/query string.
     |
     */
-    locale: 'en',
+    locale: 'en'
+  },
+
+  logger: {
+    /*
+    |--------------------------------------------------------------------------
+    | Transport
+    |--------------------------------------------------------------------------
+    |
+    | Transport to be used for logging messages. You can have multiple
+    | transports using same driver.
+    |
+    | Available drivers are: `file` and `console`.
+    |
+    */
+    transport: 'console',
 
     /*
     |--------------------------------------------------------------------------
-    | Fallback Locale
+    | Console Transport
     |--------------------------------------------------------------------------
     |
-    | Fallback locale to be used when actual locale is not supported.
+    | Using `console` driver for logging. This driver writes to `stdout`
+    | and `stderr`
     |
     */
-    fallbackLocale: 'en'
+    console: {
+      driver: 'console',
+      name: 'adonis-app',
+      level: 'info'
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | File Transport
+    |--------------------------------------------------------------------------
+    |
+    | File transport uses file driver and writes log messages for a given
+    | file inside `tmp` directory for your app.
+    |
+    | For a different directory, set an absolute path for the filename.
+    |
+    */
+    file: {
+      driver: 'file',
+      name: 'adonis-app',
+      filename: 'adonis.log',
+      level: 'info'
+    }
   }
 }
