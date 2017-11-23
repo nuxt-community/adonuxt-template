@@ -3,103 +3,155 @@
 module.exports = {
   /*
   |--------------------------------------------------------------------------
-  | Data Limit
+  | JSON Parser
   |--------------------------------------------------------------------------
   |
-  | Data limit to be sent on a POST request.
-  |
+  | Below settings are applied when request body contains JSON payload. If
+  | you want body parser to ignore JSON payload, then simply set `types`
+  | to an empty array.
   */
-  limit: '1mb',
+  json: {
+    /*
+    |--------------------------------------------------------------------------
+    | limit
+    |--------------------------------------------------------------------------
+    |
+    | Defines the limit of JSON that can be sent by the client. If payload
+    | is over 1mb it will not be processed.
+    |
+    */
+    limit: '1mb',
+
+    /*
+    |--------------------------------------------------------------------------
+    | strict
+    |--------------------------------------------------------------------------
+    |
+    | When `scrict` is set to true, body parser will only parse Arrays and
+    | Object. Otherwise everything parseable by `JSON.parse` is parsed.
+    |
+    */
+    strict: true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | types
+    |--------------------------------------------------------------------------
+    |
+    | Which content types are processed as JSON payloads. You are free to
+    | add your own types here, but the request body should be parseable
+    | by `JSON.parse` method.
+    |
+    */
+    types: [
+      'application/json',
+      'application/json-patch+json',
+      'application/vnd.api+json',
+      'application/csp-report'
+    ]
+  },
 
   /*
   |--------------------------------------------------------------------------
-  | Strict
+  | Raw Parser
   |--------------------------------------------------------------------------
   |
-  | Keeping strict to true will make body parse only parse array and objects
-  | using JSON.parse. Keeping it to false will force the parse to parse all
-  | values include null.
+  |
   |
   */
-  strict: true,
-
-  qs: {
-    /*
-    |--------------------------------------------------------------------------
-    | Depth
-    |--------------------------------------------------------------------------
-    |
-    | How deep to parse nested values submitted as form body.
-    |
-    */
-    depth: 5,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Parameter Limit
-    |--------------------------------------------------------------------------
-    |
-    | Max number of parameters to parse. 1000 is a way decent number for any
-    | normal application.
-    |
-    */
-    parameterLimit: 1000,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Delimiter
-    |--------------------------------------------------------------------------
-    |
-    | Delimiter to be used for parsing values. Example - a=b&b=c
-    |
-    */
-    delimiter: '&',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Allow Dots
-    |--------------------------------------------------------------------------
-    |
-    | Keeping this value to true will enable dot notation. For example
-    | 'a.b=c' will be parsed as {a: {b: 'c'}}
-    |
-    */
-    allowDots: false
+  raw: {
+    types: [
+      'text/*'
+    ]
   },
-  uploads: {
+
+  /*
+  |--------------------------------------------------------------------------
+  | Form Parser
+  |--------------------------------------------------------------------------
+  |
+  |
+  |
+  */
+  form: {
+    types: [
+      'application/x-www-form-urlencoded'
+    ]
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | Files Parser
+  |--------------------------------------------------------------------------
+  |
+  |
+  |
+  */
+  files: {
+    types: [
+      'multipart/form-data'
+    ],
 
     /*
     |--------------------------------------------------------------------------
-    | Multiple
+    | Max Size
     |--------------------------------------------------------------------------
     |
-    | Whether or not to allow multiple file uploads.
+    | Below value is the max size of all the files uploaded to the server. It
+    | is validated even before files have been processed and hard exception
+    | is thrown.
+    |
+    | Consider setting a reasonable value here, otherwise people may upload GB's
+    | of files which will keep your server busy.
+    |
+    | Also this value is considered when `autoProcess` is set to true.
     |
     */
-    multiple: true,
+    maxSize: '20mb',
 
     /*
     |--------------------------------------------------------------------------
-    | CheckSums
+    | Auto Process
     |--------------------------------------------------------------------------
     |
-    | This option will enable checksums for uploaded files. Following are
-    | the support options.
+    | Whether or not to auto-process files. Since HTTP servers handle files via
+    | couple of specific endpoints. It is better to set this value off and
+    | manually process the files when required.
     |
-    | md5, sha1
-    |
+    | This value can contain a boolean or an array of route patterns
+    | to be autoprocessed.
     */
-    hash: false,
+    autoProcess: true,
 
     /*
     |--------------------------------------------------------------------------
-    | Max Upload Size
+    | Process Manually
     |--------------------------------------------------------------------------
     |
-    | Max file upload size for all files. Example - 2 files of 1mb will reach
-    | the maximum limit.
+    | The list of routes that should not process files and instead rely on
+    | manual process. This list should only contain routes when autoProcess
+    | is to true. Otherwise everything is processed manually.
     |
     */
-    maxSize: '2mb'
+    processManually: []
+
+    /*
+    |--------------------------------------------------------------------------
+    | Temporary file name
+    |--------------------------------------------------------------------------
+    |
+    | Define a function, which should return a string to be used as the
+    | tmp file name.
+    |
+    | If not defined, Bodyparser will use `uuid` as the tmp file name.
+    |
+    | To be defined as. If you are defining the function, then do make sure
+    | to return a value from it.
+    |
+    | tmpFileName () {
+    |   return 'some-unique-value'
+    | }
+    |
+    */
   }
 }

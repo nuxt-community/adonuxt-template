@@ -6,8 +6,14 @@ module.exports = {
   | Origin
   |--------------------------------------------------------------------------
   |
-  | Setting up origin true will allow the request origin. You can also
-  | define multiple origins as string.
+  | Set a list of origins to be allowed. The value can be one of the following
+  |
+  | Boolean: true - Allow current request origin
+  | Boolean: false - Disallow all
+  | String - Comma seperated list of allowed origins
+  | Array - An array of allowed origins
+  | String: * - A wildcard to allow current request origin
+  | Function - Receives the current origin and should return one of the above values.
   |
   */
   origin: false,
@@ -17,18 +23,28 @@ module.exports = {
   | Methods
   |--------------------------------------------------------------------------
   |
-  | Comma seperated HTTP methods to be allowed.
+  | HTTP methods to be allowed. The value can be one of the following
+  |
+  | String - Comma seperated list of allowed methods
+  | Array - An array of allowed methods
   |
   */
-  methods: 'GET, PUT, POST',
+  methods: ['GET', 'PUT', 'POST'],
 
   /*
   |--------------------------------------------------------------------------
   | Headers
   |--------------------------------------------------------------------------
   |
-  | Headers to allow. Keep it true will allow headers defined in
-  | Access-Control-Request-Headers.
+  | List of headers to be allowed via Access-Control-Request-Headers header.
+  | The value can be on of the following.
+  |
+  | Boolean: true - Allow current request headers
+  | Boolean: false - Disallow all
+  | String - Comma seperated list of allowed headers
+  | Array - An array of allowed headers
+  | String: * - A wildcard to allow current request headers
+  | Function - Receives the current header and should return one of the above values.
   |
   */
   headers: true,
@@ -38,7 +54,12 @@ module.exports = {
   | Expose Headers
   |--------------------------------------------------------------------------
   |
-  | Expose headers to Access-Control-Expose-Headers.
+  | A list of headers to be exposed via `Access-Control-Expose-Headers`
+  | header. The value can be on of the following.
+  |
+  | Boolean: false - Disallow all
+  | String: Comma seperated list of allowed headers
+  | Array - An array of allowed headers
   |
   */
   exposeHeaders: false,
@@ -48,7 +69,8 @@ module.exports = {
   | Credentials
   |--------------------------------------------------------------------------
   |
-  | Define Access-Control-Allow-Credentials header
+  | Define Access-Control-Allow-Credentials header. It should always be a
+  | boolean.
   |
   */
   credentials: false,

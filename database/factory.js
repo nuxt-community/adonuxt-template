@@ -2,29 +2,21 @@
 
 /*
 |--------------------------------------------------------------------------
-| Model and Database Factory
+| Factory
 |--------------------------------------------------------------------------
 |
-| Factories let you define blueprints for your database models or tables.
-| These blueprints can be used with seeds to create fake entries. Also
-| factories are helpful when writing tests.
+| Factories are used to define blueprints for database tables or Lucid
+| models. Later you can use these blueprints to seed your database
+| with dummy data.
 |
 */
 
-const Factory = use('Factory')
+// const Factory = use('Factory')
 
-/*
-|--------------------------------------------------------------------------
-| User Model Blueprint
-|--------------------------------------------------------------------------
-| Below is an example of blueprint for User Model. You can make use of
-| this blueprint inside your seeds to generate dummy data.
-|
+/**
+  Factory.blueprint('App/Models/User', (faker) => {
+    return {
+      username: faker.username()
+    }
+  })
 */
-Factory.blueprint('App/Model/User', (fake) => {
-  return {
-    username: fake.username(),
-    email: fake.email(),
-    password: fake.password()
-  }
-})
