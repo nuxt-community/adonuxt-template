@@ -27,7 +27,6 @@
     "@adonisjs/shield": "^1.0.4",
     "cross-env": "^3.1.4",
     "nuxt": "latest",
-    "standard": "^8.6.0",
     "youch": "^2.0.4"
   },
   "standard": {
