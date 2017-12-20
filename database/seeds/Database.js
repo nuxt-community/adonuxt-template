@@ -16,8 +16,8 @@
 
 class DatabaseSeeder {
 
-  * run () {
-    // yield Factory.model('App/Model/User').create(5)
+  async run () {
+    // await Factory.model('App/Model/User').create(5)
   }
 
 }
