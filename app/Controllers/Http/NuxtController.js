@@ -1,28 +1,30 @@
 'use strict'
 
-const Env = use('Env')
-const Config = use('Config')
-const { Nuxt, Builder } = require('nuxt')
+const NuxtService = use('App/Services/Nuxt')
 
 class NuxtController {
+  async render ({ request, response, session }) {
+    /**
+     * Do not end the response when this method has been executed.
+     * Nuxt will write the response in background and will close
+     * the response when required.
+     *
+     * @type {Boolean}
+     */
+    response.implicitEnd = false
 
-  constructor () {
-    let config = Config.get('nuxt')
-    config.dev = Env.get('NODE_ENV') === 'development'
-    this.nuxt = new Nuxt(config)
-    // Start build process (only in development)
-    if (config.dev) {
-      new Builder(this.nuxt).build()
-    }
-  }
+    /**
+     * Since response is now handled by Nuxt, we should commit any session
+     * values. This will make sure features like CSRF protection works as
+     * expected.
+     */
+    await session.commit()
 
-  async render ({request: { request: req }, response: { response: res }}) {
-    await new Promise((resolve, reject) => {
-      this.nuxt.render(req, res, promise => {
-        promise.then(resolve).catch(reject)
-      })
-    })
+    /**
+     * Finally handover request to nuxt
+     */
+    await NuxtService.render(request.request, response.response)
   }
 }
 
-module.exports = new NuxtController()
+module.exports = NuxtController
