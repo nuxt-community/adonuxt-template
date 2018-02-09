@@ -1,9 +1,9 @@
 'use strict'
 
-const NuxtService = use('App/Services/Nuxt')
-
 class NuxtController {
   async render ({ request, response, session }) {
+    const NuxtService = await use('Nuxt')
+
     /**
      * Do not end the response when this method has been executed.
      * Nuxt will write the response in background and will close

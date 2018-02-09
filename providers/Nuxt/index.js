@@ -1,11 +1,12 @@
 'use strict'
 
-const Env = use('Env')
-const Config = use('Config')
 const { Nuxt, Builder } = require('nuxt')
+const Logger = use('Logger')
 
 class NuxtService {
-  constructor () {
+  constructor (Config, Env) {
+    this.Config = Config
+    this.Env = Env
     this.nuxt = null
   }
 
@@ -14,12 +15,18 @@ class NuxtService {
    *
    * @method boot
    *
-   * @return {void}
+   * @return {Promise}
    */
-  build (dev = Env.get('NODE_ENV') === 'development') {
-    const config = Config.merge('nuxt', { dev })
-    this.nuxt = new Nuxt(config)
-    return new Builder(this.nuxt).build()
+  build (dev = this.Env.get('NODE_ENV') === 'development') {
+    const config = this.Config.merge('nuxt', { dev })
+    return new Promise(async (resolve, reject) => {
+      this.nuxt = await new Nuxt(config)
+      if (dev) {
+        await new Builder(this.nuxt).build()
+      }
+      Logger.info('Nuxt is ready to handle requests')
+      resolve(this)
+    })
   }
 
   /**
@@ -41,5 +48,4 @@ class NuxtService {
     })
   }
 }
-
-module.exports = new NuxtService()
+module.exports = NuxtService
