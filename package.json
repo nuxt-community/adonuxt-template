@@ -10,24 +10,24 @@
     "serve:dev": "npm run dev",
     "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
     "build": "node ./ace nuxtbuild",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "crosncus-env NODE_ENV=production node server.js",
     "precommit": "npm run lint",
     "lint": "standard && eslint --ext .js,.vue resources/"
   },
   "dependencies": {
-    "@adonisjs/ace": "^4.0.7",
-    "@adonisjs/auth": "^2.0.10",
-    "@adonisjs/bodyparser": "^1.0.8",
+    "@adonisjs/ace": "^5.0.1",
+    "@adonisjs/auth": "^3.0.5",
+    "@adonisjs/bodyparser": "^2.0.2",
     "@adonisjs/cors": "^1.0.2",
     "@adonisjs/fold": "^4.0.5",
-    "@adonisjs/framework": "^4.0.27",
-    "@adonisjs/ignitor": "^1.0.14",
-    "@adonisjs/lucid": "^4.0.22",
+    "@adonisjs/framework": "^5.0.6",
+    "@adonisjs/ignitor": "^2.0.6",
+    "@adonisjs/lucid": "^5.0.3",
     "@adonisjs/session": "^1.0.19",
     "@adonisjs/shield": "^1.0.4",
-    "cross-env": "^3.1.4",
+    "cross-env": "^5.1.4",
     "nuxt": "latest",
-    "standard": "^8.6.0",
+    "standard": "^11.0.1",
     "youch": "^2.0.4"
   },
   "standard": {
@@ -40,13 +40,13 @@
     "App": "./app"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.13.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-html": "^2.0.0",
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-html": "^4.0.2",
     "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-standard": "^3.0.1",
     "nodemon": "^1.11.0",
-    "standard": "^8.6.0"
+    "standard": "^11.0.1"
   }
 }
