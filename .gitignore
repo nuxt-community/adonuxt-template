@@ -27,3 +27,7 @@ lib-cov
 
 # Nuxt.js
 .nuxt/
+
+# Ide config file
+
+.idea/
