@@ -10,7 +10,7 @@
     "serve:dev": "npm run dev",
     "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
     "build": "node ./ace nuxtbuild",
-    "start": "crosncus-env NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "precommit": "npm run lint",
     "lint": "standard && eslint --ext .js,.vue resources/",
     "lint:fix": "eslint --fix --ext .js,.vue resources/"
@@ -52,6 +52,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.11.0",
+    "prettier": "^1.12.1",
     "standard": "^11.0.1"
   }
 }

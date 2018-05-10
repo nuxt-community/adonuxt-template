@@ -7,9 +7,7 @@ module.exports = {
   },
   extends: 'standard',
   // required to lint *.vue files
-  plugins: [
-    'html'
-  ],
+  plugins: ['html'],
   // add your custom rules here
   rules: {
     // allow paren-less arrow functions
@@ -22,6 +20,7 @@ module.exports = {
     'no-console': 2
   },
   globals: {
-    'use': true
+    use: true,
+    make: true
   }
 }
