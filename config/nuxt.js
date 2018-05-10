@@ -36,29 +36,28 @@ module.exports = {
         href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
     ],
-    noscript: [{ innerHtml: `
+    noscript: [
+      {
+        innerHtml: `
       <h1>Javascript Disabled</h1>
       <p>It appears that you do not have Javascript enabled. This application relies on Javascript for most of our features.<p>
       <p>Please enable Javascript and <a href=".">reload</a> in order to use this site.</p>
-    `}]
+    `
+      }
+    ]
   },
   plugins: ['~/plugins/vuetify.js'],
-  css: [
-    '~/assets/style/app.styl'
-  ],
+  css: ['~/assets/style/app.styl'],
   /*
   ** Customize the progress-bar color
   */
-  loading: {color: '#744d82'},
+  loading: { color: '#744d82' },
 
   srcDir: resolve(__dirname, '..', 'resources'),
   /*
 ** Build configuration
 */
   build: {
-    vendor: [
-      '~/plugins/vuetify.js'
-    ],
     extractCSS: true,
     /*
     ** Run ESLint on save
