@@ -72,7 +72,7 @@ module.exports = {
   build: {
     extractCSS: true,
     cache: true,
-    parallel: true,
+    // parallel: true,
     /*
     ** Run ESLint on save
     */
