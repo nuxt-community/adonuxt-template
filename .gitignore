@@ -31,3 +31,4 @@ lib-cov
 # Ide config file
 
 .idea/
+.code/
