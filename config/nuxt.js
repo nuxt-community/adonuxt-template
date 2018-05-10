@@ -31,6 +31,10 @@ module.exports = {
     ],
     link: [
       {
+        rel: 'dns-prefetch',
+        href: '//fonts.googleapis.com'
+      },
+      {
         rel: 'stylesheet',
         type: 'text/css',
         href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
@@ -46,24 +50,34 @@ module.exports = {
       }
     ]
   },
+  /**
+   * Plugins definitions
+   */
   plugins: ['~/plugins/vuetify.js'],
+  /**
+   * Global css loader
+   */
   css: ['~/assets/style/app.styl'],
-  /*
-  ** Customize the progress-bar color
+  /**
+  * Customize the progress-bar color
   */
   loading: { color: '#744d82' },
-
+  /**
+  * Nuxt Source directory
+  */
   srcDir: resolve(__dirname, '..', 'resources'),
-  /*
-** Build configuration
-*/
+  /**
+  * Build configuration
+  */
   build: {
     extractCSS: true,
+    cache: true,
+    parallel: true,
     /*
     ** Run ESLint on save
     */
     extend (config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.client) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
