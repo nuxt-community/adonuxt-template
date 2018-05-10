@@ -1,8 +1,15 @@
 'use strict'
 
-const resolve = require('path').resolve
+const { resolve } = require('path')
 
 module.exports = {
+  router: {
+    base: '/',
+    scrollBehaviour: () => ({
+      x: 0,
+      y: 0
+    })
+  },
   /*
   ** Headers of the page
   */
@@ -24,22 +31,47 @@ module.exports = {
     ],
     link: [
       {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: 'favicon.ico'
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
-    ]
+    ],
+    noscript: [{ innerHtml: `
+      <h1>Javascript Disabled</h1>
+      <p>It appears that you do not have Javascript enabled. This application relies on Javascript for most of our features.<p>
+      <p>Please enable Javascript and <a href=".">reload</a> in order to use this site.</p>
+    `}]
   },
-  /*
-  ** Global CSS
-  */
-  css: ['~assets/css/main.css'],
+  plugins: ['~/plugins/vuetify.js'],
+  css: [
+    '~/assets/style/app.styl'
+  ],
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#744d82' },
+  loading: {color: '#744d82'},
+
+  srcDir: resolve(__dirname, '..', 'resources'),
   /*
-  ** Point to resources
-  */
-  srcDir: resolve(__dirname, '..', 'resources')
+** Build configuration
+*/
+  build: {
+    vendor: [
+      '~/plugins/vuetify.js'
+    ],
+    extractCSS: true,
+    /*
+    ** Run ESLint on save
+    */
+    extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
+  }
 }
