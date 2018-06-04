@@ -16,10 +16,12 @@ class NuxtService {
    *
    * @return {void}
    */
-  build (dev = Env.get('NODE_ENV') === 'development') {
+  async build (dev = Env.get('NODE_ENV') === 'development') {
     const config = Config.merge('nuxt', { dev })
     this.nuxt = new Nuxt(config)
-    return new Builder(this.nuxt).build()
+    if (dev || process.env.NODE_ENV === 'build') {
+      await new Builder(this.nuxt).build()
+    }
   }
 
   /**
