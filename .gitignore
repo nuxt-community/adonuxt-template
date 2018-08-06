@@ -29,6 +29,5 @@ lib-cov
 .nuxt/
 
 # Ide config file
-
 .idea/
 .code/
