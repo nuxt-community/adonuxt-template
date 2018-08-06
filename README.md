@@ -25,7 +25,7 @@ adonis new --blueprint nuxt-community/adonuxt-template <project-name>
 
 ## Features
 
-See [AdonisJS features](https://adonisjs.com/docs/4.0/about) and [Nuxt.js features](https://nuxtjs.org/guide/#features).
+See [AdonisJS features](https://adonisjs.com/docs/about) and [Nuxt.js features](https://nuxtjs.org/guide/#features).
 
 ## AdonisJS Changes
 
