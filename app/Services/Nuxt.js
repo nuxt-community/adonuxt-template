@@ -2,7 +2,7 @@
 
 const Env = use('Env')
 const Config = use('Config')
-const { Nuxt, Builder } = require('nuxt')
+const { Nuxt, Builder } = require('nuxt-edge')
 
 class NuxtService {
   constructor () {
